@@ -1,38 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import moment from 'moment'
+import React, { Component } from 'react'
+import Header from './Header'
+import Calendar from './Calendar'
 
-function App() {
-  return (
-    <div className="App">
-      <div class="black-nav">
+export default class App extends Component {
+    state = {
+        calendarYM : moment(),
+        today : moment()
+    }
 
-      </div>
-    </div>
-  );
+    moveMonth = (month) => {
+        this.setState({
+            calendarYM : this.state.calendarYM.add(month,'M')
+        })
+    }
+    
+    render(){
+        return (
+            <div className="test-layout">
+                <div className="RCA-app-container">
+                    <Header calendarYM={ this.state.calendarYM.format("YYYY년 MM월")}
+                        today={this.state.today.format("현재 YYYY - MM - DD")}
+                        moveMonth={this.moveMonth}
+                    />
+                    <Calendar />
+                </div>
+            </div>
+        )
+    }
 }
-
-export default App;
-
-
-<head> 메타 데이터 : 웹 문서에 표현되지 않는 정보</head>
-<title> 제목 : toolbar 표시 / 즐겨찾기 제목 / 검색 엔진 제목</title>
-<body> 눈에 보이는 데이터 : 웹 문서에 표햔되는 정보</body>
-
-//box
-<header></header>
-<footer></footer>
-<nav></nav>
-<aside></aside>
-<main></main>
-
-//
-<a></a>
-<button></button>
-<input></input>
-<label></label>
-<img></img>
-<video></video>
-<audio></audio>
-<map></map>
-<canvas></canvas>
-<table></table>
