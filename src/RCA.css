@@ -15,6 +15,7 @@
 .RCA-header-container{
   flex-basis: 50px;
   background-color: rgb(224, 215, 202);
+  display: flex;
 }
 
 .RCA-calendar-container{
